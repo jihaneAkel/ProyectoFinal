@@ -1,0 +1,20 @@
+
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+
+    <h2>Comentarios / ReviewS</h2>
+<div id="list">
+          <!-- submit == href >> y l' autre sans avec un input display : none ; --> 
+                   {% for respuesta in respuestas %}
+                       <div id="respuesta">
+                    <ul >
+                 
+                 <p><b>Nombre:</b> {{respuesta.nombre}}</p>
+                <p><b>respuesta :</b>{{respuesta.answer}} </p>
+
+                 </ul>
+                 </div>
+                {% endfor %} 
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+
+    <section>				
+        <div id="container" >
+
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+                <div id="login" class="animate form">
+                    <form method="post" action="../Controller/login.php" name="loginform"  autocomplete="on"> 
+                        <h1>Iniciar sesión</h1><br>
+                        <br>
+                        <br>
+                        <p> 
+                            <label for="username" class="uname" data-icon="u" > Nombre </label>
+                            <input id="username" name="nombre" required="required" type="text"
+                                   data-validation="length alphanumeric" 
+                                   data-validation-length="3-12" 
+                                   data-validation-error-msg="Nombre de usuario tiene que ser un valor alfanumérico (3-12 caracteres)"  placeholder="nombre"/>
+                        </p>
+                        <p> 
+                            <label for="password" class="youpasswd" data-icon="p"> Contraseña </label>
+                            <input id="password" name="contrasena" required="required" type="password" placeholder="contraseña" /> 
+                        </p>
+                        <p class="login button"> 
+                            <input type="submit" value="Iniciar" />
+
+                        </p>
+                        <br><br> 
+                        <p>  
+                            Registrarse : 
+                            <a href="../Controller/registrarForum.php" class="to_register"> Registrar  </a>
+                        </p>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>  
+    </section>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
+    <script>$.validate({
+            modules: 'location, date, security, file'
+        });
+
+        $('#presentation').restrictLength($('#pres-max-length'));
+    </script>
+
+
+{% endblock %}
+{% block end %}
+
+{% endblock %}
+{# empty Twig template #}

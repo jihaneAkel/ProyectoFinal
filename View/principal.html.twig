@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block  menu %}
+    
+    
+                            <div  class="right">
+
+
+                            </div>
+
+                        {% endblock %} 
+                      
+{% block contenidoIzquierda %}
+
+   <div id="slideshow-wrap">
+        <input type="radio" id="button-1" name="controls" checked="checked"/>
+        <label for="button-1"></label>
+        <input type="radio" id="button-2" name="controls"/>
+        <label for="button-2"></label>
+        <input type="radio" id="button-3" name="controls"/>
+        <label for="button-3"></label>
+        <input type="radio" id="button-4" name="controls"/>
+        <label for="button-4"></label>
+        <input type="radio" id="button-5" name="controls"/>
+        <label for="button-5"></label>
+   
+        <label for="button-1" class="arrows" id="arrow-1">></label>
+        <label for="button-2" class="arrows" id="arrow-2">></label>
+        <label for="button-3" class="arrows" id="arrow-3">></label>
+        <label for="button-4" class="arrows" id="arrow-4">></label>
+        <label for="button-5" class="arrows" id="arrow-5">></label>
+      
+        <div id="slideshow-inner">
+            <ul>
+                <li id="slide1">
+                    <iframe width="653" height="350" src="https://www.youtube.com/embed/CndQ-CxwnNY" frameborder="0" allowfullscreen></iframe>
+                </li>
+                <li id="slide2">
+                    <img src="../View/img/f.jpg" width="654px" height="350"/>
+       
+                </li>
+                <li id="slide3">
+                    <img src="../View/img/d.jpg" width="654px" height="350"/>
+
+                </li>
+                <li id="slide4">
+                    <img src="../View/img/ab.jpg" width="654px" height="350"/>
+                   
+                </li>
+                <li id="slide5">
+                    <img src="../View/img/a.jpg" width="654px" height="350"/>
+                
+                </li>
+              
+            </ul>
+        </div>
+    </div>
+
+    
+    
+   
+
+    
+    
+{% endblock %}
+

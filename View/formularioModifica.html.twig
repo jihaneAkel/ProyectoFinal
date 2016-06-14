@@ -1,0 +1,39 @@
+{# empty Twig template #}
+
+{% extends 'base.html.twig' %}
+{% block contenidoIzquierda %}
+
+
+
+
+
+
+    <form action="../Controller/ModificaLibro.php"  enctype="multipart/form-data" method="POST">
+        <h3>Isbn</h3>
+        <input value="{{libro.isbn}}" type="number" id="isbn" name="isbn">
+        <h3>Imagen</h3>
+        <img src="../View/img/{{libro.imagen}}" width="150" height="250"><br>
+        <input value="{{libro.imagen}}" type="file" id="imagen" name="imagen">
+
+        <h3>autor</h3>
+        <input value="{{libro.autor}}" type="text" size="40" name="autor">
+        <h3>Título</h3>
+        <input  value="{{libro.titulo}}" type="text" size="40" name="titulo">
+        <h3>Tipo</h3>
+        <select   name="tipo">
+            <option value="arte">Arte</option>
+            <option value="historia">Historia</option>
+            <option value="ficcion">Ficcion</option>
+            <option value="literatura">Literatura</option>
+            <option value="novela">Novela</option>
+        </select> 
+
+        <br><h3>Descripción</h3>
+        <input type="text" value="{{libro.descripcion}}" name="descripcion" cols="60" rows="6">
+        </input><hr>
+        <input type="submit" value="Aceptar">
+    </form>
+
+
+{% endblock %}
+

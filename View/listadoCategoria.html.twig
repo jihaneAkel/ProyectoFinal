@@ -1,0 +1,33 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block contenidoIzquierda %}
+    <h2>Listado por Categoria </h2>
+    <div id="list">
+        {% for tipo in tipos %}
+
+            <ul id="livre">
+
+                <img src="../View/img/{{tipo.imagen}}" max-width="150" height="250"><br>
+                <br>
+                <b>ISBN:</b><br>
+                <p>{{tipo.isbn}}</p>
+
+                <b>Titulo:</b><br>
+                <p>{{tipo.autor}}</p>
+                <b>Autor:</b><br>
+                <p>{{tipo.titulo}}</p>
+
+                <div class="descripcion"> <b>Descripcion:</b>{{tipo.descripcion}}
+                </div> 
+                <br>
+                <br><br><br>
+            </ul>
+
+        {% endfor %} 
+    </div>
+{% endblock %}        
+
+
+
+
+

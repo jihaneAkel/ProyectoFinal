@@ -1,0 +1,71 @@
+{# empty Twig template #}
+
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+    <h2>Listado Completo</h2>
+    <div id="list">
+
+        {% for libro in libros %}
+            <ul id="livre" >
+                <img src="../View/img/{{libro.imagen}}" width="150" height="250">              
+
+                <p><b>ISBN:</b>{{libro.isbn}}</p>
+                <p><b>Autor:</b> {{libro.autor}} </p>
+                <p><b>Titulo:</b> {{libro.titulo}}</p>
+                <p><b>Categoria:</b> {{libro.tipo}}</p>
+                <p> 
+                <div class="descripcion"> <b>Descripcion:</b> {{libro.descripcion}}
+                </div> 
+                <br>
+                <br><br>
+                </p>
+            </ul>
+
+        {% endfor %}
+
+    </div>
+
+    <script>
+        function borrar(isbn) {
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                height: 200,
+                modal: true,
+                buttons: {
+                    "Delete": function () {
+                        console.log(isbn);
+                        $.ajax({
+                            type: "POST",
+                            url: "../Controller/borrarLibro.php",
+                            data: "isbn=" + isbn,
+                            success: function (data) {
+                                $(".container").html(data);
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+
+
+            });
+        }
+        ;
+
+
+
+    </script>
+    <?php include('paginador.php')?>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+

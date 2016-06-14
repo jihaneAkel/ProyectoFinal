@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+    <form action="../Controller/grabaAutor.php"  enctype="multipart/form-data" method="POST">
+
+        <h3>Imagen</h3>
+        <input type="file" id="imagen" name="imagen">
+        <h3>idAu</h3>
+        <input type="number" size="40" name="idAu">
+        <h3>nombre</h3>
+        <input type="text" size="40" name="nombre">
+        <h3>Genero</h3>
+        <input type="text" size="40" name="libros">
+        <h3>mas Popular</h3>
+      <input type="text"  name="popular">
+        <br><h3>biografia</h3>
+        <textarea name="bio" cols="60" rows="6">
+        </textarea><hr>
+         
+        <input type="submit" value="Aceptar">
+    </form>
+
+
+
+{% endblock %}
+
+
+
+
+

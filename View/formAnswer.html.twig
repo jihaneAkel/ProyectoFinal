@@ -1,0 +1,22 @@
+{# empty Twig template #}
+{% extends 'base.html.twig' %}
+{% block contenidoIzquierda %}
+
+
+    <form action="../Controller/modificaCritica.php"  enctype="multipart/form-data" method="POST">
+           <h3>Id</h3>
+        <input value="{{critica.idCritica}}" type="number" id="idCritica" name="idCritica">
+        <h3>Nombre</h3>
+         <input value="{{critica.nombre}}" type="text" id="nombre" name="nombre">
+ 
+        <h3>Comentario</h3>
+        <input type="text" value="{{critica.comentario}}" name="comentario" cols="60" rows="6">
+        <hr>
+        <input type="submit" value="Aceptar">
+     
+      
+       
+    </form>
+{% endblock %}
+{% block end %}
+{% endblock %}

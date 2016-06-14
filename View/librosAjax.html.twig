@@ -1,0 +1,36 @@
+{# empty Twig template #}
+{% block contenidoIzquierda %}
+    <h2>Listado Completo</h2>
+    <div id="list">
+
+        {% for libro in libros %}
+
+            <ul id="livre">
+                <li>
+                    <img src="../View/img/{{libro.imagen}}" width="150" height="250"><br>
+                    <br>
+                    <b>ISBN:</b><br>
+                    <p class="codigo">{{libro.isbn}}</p>
+                    <b>Autor:</b><br>
+                    <p>{{libro.autor}}</p>
+                    <b>Titulo:</b><br>
+                    <p>{{libro.titulo}}</p>
+                    <b>Categoria:</b><br>
+                    <p>{{libro.tipo}}</p>
+                    <b>Descripcion:</b><br>
+                    <p>{{libro.descripcion}}</p>
+
+
+
+                    <button id="dialog-confirm" onclick="borrar({{libro.isbn}})" > Borrar</button>
+                    <button><a href="../Controller/libroM.php?isbn={{libro.isbn}}">Modificar </a></button>
+                </li>
+            </ul>
+
+        {% endfor %}
+
+        <script type="text/javascript" src="../View/js/jqueryAjax.js"></script>
+        <div id="libros"></div>
+        <div id="paginacion"></div>
+    </div>
+{% endblock %}

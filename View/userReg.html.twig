@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+
+    <section>				
+        <div id="container" >
+
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+
+                <div id="register" class="animate form">
+                    <form action="../Controller/grabaUser.php"  enctype="multipart/form-data" method="POST" autocomplete="on">
+                        <br>
+                        <br>
+                        <h1> Registrarse </h1>
+                        <br>
+                        <p> 
+                            <label for="usernamesignup" class="uname" data-icon="u">Nombre de Usuario</label>
+                            <input id="usernamesignup" name="nombre" required="required" type="text" placeholder="Nombre" data-validation="length alphanumeric" 
+                                   data-validation-length="3-12" 
+                                   data-validation-error-msg="Nombre de usuario tiene que ser un valor alfanumérico (3-12 caracteres)" />
+                        </p>
+                        <p> 
+                            <label for="emailsignup" class="youmail" data-icon="e" > Email</label>
+                            <input id="emailsignup" name="email" required="required" type="email" placeholder="email@mail.com"
+                                   data-validation="email"
+                                   data-validation-error-msg="No ha dado una dirección de correo electrónico correcta"/> 
+                        </p>
+                        <p> 
+                            <label for="passwordsignup" class="youpasswd" data-icon="p">Contraseña </label>
+                            <input id="passwordsignup" name="contrasena" required="required" type="password" placeholder="contraseña"/>
+                        </p>
+
+                        <p class="signin button"> 
+                            <input type="submit" value="Registrar"/> 
+                        </p>
+                        <p class="change_link">  
+                            Iniciar Sesion
+                            <a href="../Controller/registrar.php" class="to_register"> iniciarSesion </a>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>  
+    </section>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
+    <script>$.validate({
+            modules: 'location, date, security, file'
+        });
+
+        $('#presentation').restrictLength($('#pres-max-length'));
+    </script>
+{% endblock %}
+{% block end %}
+
+{% endblock %}
+{# empty Twig template #}
+

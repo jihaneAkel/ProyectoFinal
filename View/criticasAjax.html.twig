@@ -1,0 +1,56 @@
+{# empty Twig template #}
+{% block contenidoIzquierda %}
+    <div id="iniciar">
+        <a class="buttn" href="../Controller/logout.php"><span>| Log out</span></a>
+    </div>
+<nav id="menu">
+                            <ul>
+                                <li><a  href="../Controller/nuevoAutor.php">añadir Autor</a></li>
+                                <li> <a href="../Controller/nuevoLibro.php">Añadir Libro</a></li>
+                                
+                                </ul>
+ </nav>
+    <h2>Area miembros</h2>
+
+    <div id="list">
+
+        {% for critica in criticas %}
+            <ul id="respuesta" >
+                <button id="dialog-confi" class="ca-close" onclick="borra({{critica.idCritica}})" >borrar</i></button> 
+
+                <p id="nombreU"><b>Usuario:</b><br>{{critica.nombre}}</p>
+
+                <p id="com"> {{critica.comentario}} </p>
+
+
+            </ul>   
+
+
+        {% endfor %}
+
+
+    </div>
+
+    <div id="list">
+
+        <form action="../Controller/grabaComentario.php"  enctype="multipart/form-data" method="POST" ID="formAnadir">
+            <h4>Añadir Comentario</h4>
+            <br>
+            <h5>Nombre :</h5><br>
+
+            <input  value="{{users.nombre}}" type="text" id="inputNAme" name="nombre" placeholder="Nombre" required><br>
+            <h5>Comentario :</h5> <br>
+
+            <textarea name="comentario" cols="100" rows="4">
+            </textarea>
+            <br><br>
+            <input type="submit" value="Submit" id="sub">
+        </form>
+
+
+    </div>  
+
+
+    <script type="text/javascript" src="../View/js/jqueryAjax.js"></script>
+
+{% endblock %}

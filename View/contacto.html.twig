@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierda %}
+    <div class="contacto"  id="contactform">
+        <form action="" id="registration-form" >
+            <ul>
+                <li>
+                    <label for="name">Nombre*</label>
+                    <input id="name" class="text" required  name="user" data-validation="length alphanumeric" 
+                           data-validation-length="3-12" 
+                           data-validation-error-msg="Nombre de usuario tiene que ser un valor alfanumérico (3-12 caracteres)" />
+                </li>
+
+                <li>
+                    <label for="email">E-Mail*</label>
+                    <input id="email" name="email" class="text" data-validation="email"
+                           data-validation-error-msg="No ha dado una dirección de correo electrónico correcta" required/>
+                </li>
+
+                <li>
+                    <label for="message">Message*(<span id="pres-max-length">100</span> characters left)</label>
+                    <textarea id="presentation" name="presentation" rows="6" cols="50" required></textarea>
+                </li>
+
+                <li id="btm">
+                    <br>
+                    <br>
+                    <input type="submit" value="Validate" class="send">
+                    <input type="reset" value="Reset form"></li>
+            </ul>
+        </form>
+
+    </div>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.43/jquery.form-validator.min.js"></script>
+    <script>$.validate({
+            modules: 'location, date, security, file'
+        });
+
+// Restrict presentation length
+        $('#presentation').restrictLength($('#pres-max-length'));
+    </script>
+
+{% endblock %}
+
+{% block end %}
+    
+{% endblock %}
