@@ -1,4 +1,4 @@
-{# empty Twig template #}
+
 
 {% extends 'base.html.twig' %}
 
@@ -8,18 +8,46 @@
 
         {% for libro in libros %}
             <ul id="livre" >
-                <img src="../View/img/{{libro.imagen}}" width="150" height="250">              
+                <img src="../View/img/{{libro.libro.imagen}}" width="150" height="250">              
 
-                <p><b>ISBN:</b>{{libro.isbn}}</p>
-                <p><b>Autor:</b> {{libro.autor}} </p>
-                <p><b>Titulo:</b> {{libro.titulo}}</p>
-                <p><b>Categoria:</b> {{libro.tipo}}</p>
+                <p><b>ISBN:</b>{{libro.libro.isbn}}</p>
+                <p><b>Autor:</b> {{libro.libro.autor}} </p>
+                <p><b>Titulo:</b> {{libro.libro.titulo}}</p>
+                <p><b>Categoria:</b> {{libro.libro.tipo}}</p>
                 <p> 
-                <div class="descripcion"> <b>Descripcion:</b> {{libro.descripcion}}
-                </div> 
-                <br>
+                <div class="descripcion"> <b>Descripcion:</b> {{libro.libro.descripcion}}
+                    <br><br>
+                    <b>Comentarios de miembros :</b><br><hr>
+                    {% for comment in libro.comment %}
+                        <div>
+                            <ul>
+                                <!-- <button id="dialog-confi" class="ca-close" onclick="borra({{comment.idCom}})" >borrar</i></button>-->
+                                <p>{{comment.comment}}</p><hr>
+                            </ul>
+                        </div>
+                    {% endfor %}   
+
+                
                 <br><br>
-                </p>
+
+                <div id="">
+
+                    <form action="../Controller/grabaComments.php"  enctype="multipart/form-data" method="POST" ID="formAnadir">
+                        <h4>Añadir Comentario</h4>
+                        <br>
+                        <h5>Comentario :</h5> <br>
+
+                        <textarea name="comment" cols="100" rows="4">
+                        </textarea>
+                        <br>
+                        <input name="isbn" type="hidden" value={{libro.libro.isbn}}>
+                        <input type="submit" value="Submit" id="sub">
+                    </form>
+
+
+                </div>  
+                        </div>
+                        <br><br>
             </ul>
 
         {% endfor %}
@@ -57,9 +85,40 @@
 
 
 
+   function borra(idCom) {
+            $("#dialog-confi").dialog({
+                resizable: false,
+                height: 200,
+                modal: true,
+                buttons: {
+                    "Delete": function () {
+                    
+                        $.ajax({
+                            type: "POST",
+                            url: "../Controller/borrarComentario.php",
+                            data: "idCom=" + idCom,
+                            success: function (data) {
+                                $(".container").html(data);
+                            }
+                        });
+                        $(this).dialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+
+                    }
+                }
+
+
+            });
+        }
+        ;
+
+
+
+
     </script>
-    <?php include('paginador.php')?>
-</div>
+
 
 
 

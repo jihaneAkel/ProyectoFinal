@@ -216,8 +216,8 @@ div #usuario{
     margin: 35px;
     margin-left: 50px;
     margin-right: 50px;
-    min-height: 350px;
-    padding-bottom: 20px;
+    min-height: 310px;
+    padding-bottom: 50px;
 
 }
 #respuesta{
@@ -807,7 +807,7 @@ a.rd_more{
 
 a.read_more, div .back{
         position: relative;
-	bottom: -36px;
+	bottom: -20px;
 	right:0px;
         float:right;
 	padding:0px 5px 6px 6px;
@@ -1213,7 +1213,7 @@ h4{
   margin: auto;
   position: relative;
   max-width: 865px;
-  min-height: 250px;
+  min-height: 210px;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 14px;
   font-style: italic;
@@ -1347,4 +1347,24 @@ text-decoration: underline;
     right: 0;
     top: 5px;
     border-radius:1px;
+}
+
+#commentaire p{
+    float : left;
+   
+}
+
+#miembr{
+    background:    #f9cb9c;
+    background:    -webkit-linear-gradient(#f9cb9c, #ffe599);
+    background:    linear-gradient(#f9cb9c, #ffe599);
+
+    border-radius: 5px;
+    box-shadow:    0 2px 0 0 #444;
+    color:         #fff;
+    display:       inline-block;
+    padding:       5px 47px;
+    font:          italic 400 23px/1 "Komika", cursive;
+    text-align:    center;
+    text-shadow:   1px 1px 0 #000;
 }

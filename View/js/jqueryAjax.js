@@ -44,7 +44,7 @@ function borrar(isbn) {
     
     }
     //// borrar   _  Confirmation 
-function borra(idCritica) {
+function borra(idCom) {
 
     $("#dialog-confi").dialog({
         resizable: false,
@@ -52,11 +52,11 @@ function borra(idCritica) {
         modal: true,
         buttons: {
             "Delete": function () {
-                console.log(idCritica);
+                console.log(idCom);
                 $.ajax({
                     type: "POST",
                     url: "../Controller/borrarComentario.php",
-                    data: "idCritica=" + idCritica,
+                    data: "idCom=" + idCom,
                     success: function (data) {
                         $(".container").html(data);
                     }

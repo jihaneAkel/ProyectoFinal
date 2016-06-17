@@ -4,91 +4,25 @@
     <div id="iniciar">
         <a class="buttn" href="../Controller/logout.php"><span>| Log out</span></a>
     </div>
- <nav id="menu">
-                            <ul>
-                                <li><a  href="../Controller/nuevoAutor.php">añadir Autor</a></li>
-                                <li> <a href="../Controller/nuevoLibro.php">Añadir Libro</a></li>
-                                
-                                </ul>
- </nav>
-    <h2>Area miembros</h2>
+ 
+    <h2>Functionalities </h2>
    
     <div id="list">
+        <br><br>
+        <b>Inicio:</b><p>An index with book covers Gallery and a video about books</p><br>
+        <b>Listado Completo:</b><p>List of books where each book has its own comments (users can add comments if they are registered)</p>
+        <b>Listado por Categoria:</b><p>List of books by category </p><br>
+        <b>Miembros :</b><p></p>Functionalities page / add a book or an author <br>
+        <b>Eventos :</b><p>A google calendar</p><br>
+        <b>Contacto:</b><p>form to contact</p><br>
 
-        {% for critica in criticas %}
-            <ul id="respuesta" >
-                <button id="dialog-confi" class="ca-close" onclick="borra({{critica.idCritica}})" >borrar</i></button> 
-
-                <p id="nombreU"><b>Usuario:</b><br>{{critica.nombre}}</p>
-
-                <p id="com"> {{critica.comentario}} </p>
-
-
-            </ul>   
-
-
-        {% endfor %}
-
-
+        <br><br>
     </div>
-
-    <div id="list">
-
-        <form action="../Controller/grabaComentario.php"  enctype="multipart/form-data" method="POST" ID="formAnadir">
-            <h4>Añadir Comentario</h4>
-            <br>
-            <h5>Nombre :</h5><br>
-
-            <input  value="{{users.nombre}}" type="text" id="inputNAme" name="nombre" placeholder="Nombre" required><br>
-            <h5>Comentario :</h5> <br>
-
-            <textarea name="comentario" cols="100" rows="4">
-            </textarea>
-            <br><br>
-
-            <input type="submit" value="Submit" id="sub">
-        </form>
-
-
-    </div>  
-
-
-
-    <script>
-
-        function borra(idCritica) {
-            $("#dialog-confi").dialog({
-                resizable: false,
-                height: 200,
-                modal: true,
-                buttons: {
-                    "Delete": function () {
-                        console.log(idCritica);
-                        $.ajax({
-                            type: "POST",
-                            url: "../Controller/borrarComentario.php",
-                            data: "idCritica=" + idCritica,
-                            success: function (data) {
-                                $(".container").html(data);
-                            }
-                        });
-                        $(this).dialog("close");
-                    },
-                    Cancel: function () {
-                        $(this).dialog("close");
-
-                    }
-                }
-
-
-            });
-        }
-        ;
-
-
-
-
-    </script>
+  
+    
+    <button id="miembr"><a  href="../Controller/nuevoAutor.php">añadir Autor</a></button>
+    <button id="miembr"><a href="../Controller/nuevoLibro.php">Añadir Libro</a></button>
+    <br><br>
 
 
 {% endblock %}

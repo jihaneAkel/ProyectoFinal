@@ -2,6 +2,7 @@
 
 require_once 'twig/lib/Twig/Autoloader.php';
 require_once '../Model/Libro.php';
+require_once '../Model/Comment.php';
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/../View');
 $twig = new Twig_Environment($loader);
@@ -9,7 +10,9 @@ $twig = new Twig_Environment($loader);
 
 //
 $libros = Libro::getLibros();
-echo $twig->render('libros.html.twig', ['libros' => $libros]);
+$comments = Comment::getComments();
+//var_dump($libros[0]);
+echo $twig->render('libros.html.twig', ['libros' => $libros, 'comments' => $comments]);
 
 
 /*

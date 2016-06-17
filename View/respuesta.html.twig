@@ -3,15 +3,15 @@
 
 {% block contenidoIzquierda %}
 
-    <h2>Comentarios / ReviewS</h2>
+    <h2>Comentarios </h2>
 <div id="list">
           <!-- submit == href >> y l' autre sans avec un input display : none ; --> 
-                   {% for respuesta in respuestas %}
+                   {% for comment in comments %}
                        <div id="respuesta">
                     <ul >
                  
-                 <p><b>Nombre:</b> {{respuesta.nombre}}</p>
-                <p><b>respuesta :</b>{{respuesta.answer}} </p>
+                 <p><b>Nombre:</b> {{comment.nombre}}</p>
+                <p><b>com :</b>{{comment.comment}} </p>
 
                  </ul>
                  </div>

@@ -19,7 +19,19 @@ class users {
     function getNombre() {
         return $this->nombre;
     }
+    function getId() {
+        return $this->id;
+    }
 
+    function getContrasena() {
+        return $this->contrasena;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    
         public function insert() {
         $conexion = LibroDB::connectDB();
         $insercion = "INSERT INTO users (nombre, contrasena, email) VALUES(\"" . $this->nombre . "\", \"" . $this->contrasena . "\", \"" . $this->email . "\")";
@@ -42,5 +54,17 @@ class users {
             }
         }
     }
+    
+    
+     public static function getUsersByName($nombre) {
+        $conexion = LibroDB::connectDB();
+        $seleccion = "SELECT id, nombre, contrasena, email FROM users WHERE nombre=\"" . $registro->nombre . "\"";
+        $consulta = $conexion->query($seleccion);
+        $registro = $consulta->fetchObject();
+        $user = new users($registro->id, $registro->nombre, $registro->contrasena, $registro->email);
+
+        return $user; 
+    }
+
 
 }

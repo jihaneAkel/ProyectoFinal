@@ -1,55 +1,54 @@
-{# empty Twig template #}
-{% block contenidoIzquierda %}
-    <div id="iniciar">
-        <a class="buttn" href="../Controller/logout.php"><span>| Log out</span></a>
-    </div>
-<nav id="menu">
-                            <ul>
-                                <li><a  href="../Controller/nuevoAutor.php">añadir Autor</a></li>
-                                <li> <a href="../Controller/nuevoLibro.php">Añadir Libro</a></li>
-                                
-                                </ul>
- </nav>
-    <h2>Area miembros</h2>
 
+{% block contenidoIzquierda %}
+     <h2>Listado Completo</h2>
     <div id="list">
 
-        {% for critica in criticas %}
-            <ul id="respuesta" >
-                <button id="dialog-confi" class="ca-close" onclick="borra({{critica.idCritica}})" >borrar</i></button> 
+        {% for libro in libros %}
+            <ul id="livre" >
+                <img src="../View/img/{{libro.libro.imagen}}" width="150" height="250">              
 
-                <p id="nombreU"><b>Usuario:</b><br>{{critica.nombre}}</p>
+                <p><b>ISBN:</b>{{libro.libro.isbn}}</p>
+                <p><b>Autor:</b> {{libro.libro.autor}} </p>
+                <p><b>Titulo:</b> {{libro.libro.titulo}}</p>
+                <p><b>Categoria:</b> {{libro.libro.tipo}}</p>
+                <p> 
+                <div class="descripcion"> <b>Descripcion:</b> {{libro.libro.descripcion}}
+                    <br><br>
+                    <b>Comentarios de miembros :</b><br><hr>
+                    {% for comment in libro.comment %}
+                        <div>
+                            <ul>
+                               <button id="dialog-confi" class="ca-close" onclick="borra({{comment.idCom}})" >borrar</i></button>
+                                <p>{{comment.comment}}</p><hr>
+                            </ul>
+                        </div>
+                    {% endfor %}   
 
-                <p id="com"> {{critica.comentario}} </p>
+                
+                <br><br>
+
+                <div id="">
+
+                    <form action="../Controller/grabaComments.php"  enctype="multipart/form-data" method="POST" ID="formAnadir">
+                        <h4>Añadir Comentario</h4>
+                        <br>
+                        <h5>Comentario :</h5> <br>
+
+                        <textarea name="comment" cols="100" rows="4">
+                        </textarea>
+                        <br>
+                        <input name="isbn" type="hidden" value={{libro.libro.isbn}}>
+                        <input type="submit" value="Submit" id="sub">
+                    </form>
 
 
-            </ul>   
-
-
+                </div>  
+                        </div>
+                        <br><br>
+            </ul>
         {% endfor %}
 
-
     </div>
-
-    <div id="list">
-
-        <form action="../Controller/grabaComentario.php"  enctype="multipart/form-data" method="POST" ID="formAnadir">
-            <h4>Añadir Comentario</h4>
-            <br>
-            <h5>Nombre :</h5><br>
-
-            <input  value="{{users.nombre}}" type="text" id="inputNAme" name="nombre" placeholder="Nombre" required><br>
-            <h5>Comentario :</h5> <br>
-
-            <textarea name="comentario" cols="100" rows="4">
-            </textarea>
-            <br><br>
-            <input type="submit" value="Submit" id="sub">
-        </form>
-
-
-    </div>  
-
 
     <script type="text/javascript" src="../View/js/jqueryAjax.js"></script>
 

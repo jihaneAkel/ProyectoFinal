@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/Controller/registrar.php</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/Model/Libro.php</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/View/js/jquery.js</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/View/js/menuJquery.js</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/View/style.css</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/Controller/login.php</file>
-            <file>file:/C:/xampp/htdocs/LibrosTwing/Model/users.php</file>
+            <file>file:/C:/xampp/htdocs/LibrosTwing/Model/LibroDB.php</file>
+            <file>file:/C:/xampp/htdocs/LibrosTwing/View/formulario.html.twig</file>
         </group>
     </open-files>
 </project-private>
